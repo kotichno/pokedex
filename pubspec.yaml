@@ -23,6 +23,27 @@ flutter:
   uses-material-design: true
   assets:
     - assets/img/
+  fonts:
+    - family: NotoSans
+      fonts:
+        - asset: assets/fonts/noto_sans/NotoSans-Black.ttf
+        - asset: assets/fonts/noto_sans/NotoSans-BlackItalic.ttf
+        - asset: assets/fonts/noto_sans/NotoSans-Bold.ttf
+        - asset: assets/fonts/noto_sans/NotoSans-BoldItalic.ttf
+        - asset: assets/fonts/noto_sans/NotoSans-ExtraBold.ttf
+        - asset: assets/fonts/noto_sans/NotoSans-ExtraBoldItalic.ttf
+        - asset: assets/fonts/noto_sans/NotoSans-ExtraLight.ttf
+        - asset: assets/fonts/noto_sans/NotoSans-ExtraLightItalic.ttf
+        - asset: assets/fonts/noto_sans/NotoSans-Italic.ttf
+        - asset: assets/fonts/noto_sans/NotoSans-Light.ttf
+        - asset: assets/fonts/noto_sans/NotoSans-LightItalic.ttf
+        - asset: assets/fonts/noto_sans/NotoSans-Medium.ttf
+        - asset: assets/fonts/noto_sans/NotoSans-MediumItalic.ttf
+        - asset: assets/fonts/noto_sans/NotoSans-Regular.ttf
+        - asset: assets/fonts/noto_sans/NotoSans-SemiBold.ttf
+        - asset: assets/fonts/noto_sans/NotoSans-SemiBoldItalic.ttf
+        - asset: assets/fonts/noto_sans/NotoSans-Thin.ttf
+        - asset: assets/fonts/noto_sans/NotoSans-ThinItalic.ttf
 
 # flutter pub run flutter_native_splash:create
 flutter_native_splash:
