@@ -87,6 +87,56 @@ class S {
       args: [],
     );
   }
+
+  /// `Height`
+  String get height {
+    return Intl.message(
+      'Height',
+      name: 'height',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weight`
+  String get weight {
+    return Intl.message(
+      'Weight',
+      name: 'weight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `BMI`
+  String get bmi {
+    return Intl.message(
+      'BMI',
+      name: 'bmi',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Base stats`
+  String get statsTitle {
+    return Intl.message(
+      'Base stats',
+      name: 'statsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Avg. Power`
+  String get averagePower {
+    return Intl.message(
+      'Avg. Power',
+      name: 'averagePower',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

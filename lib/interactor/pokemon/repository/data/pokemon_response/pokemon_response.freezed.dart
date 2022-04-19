@@ -25,13 +25,19 @@ class _$PokemonResponseTearOff {
   _PokemonResponse call(
       {required int id,
       required String name,
+      required int height,
+      required int weight,
       required List<PokemonTypeResponse> types,
-      required PokemonSpriteResponse sprites}) {
+      required PokemonSpriteResponse sprites,
+      required List<PokemonStatsResponse> stats}) {
     return _PokemonResponse(
       id: id,
       name: name,
+      height: height,
+      weight: weight,
       types: types,
       sprites: sprites,
+      stats: stats,
     );
   }
 
@@ -47,8 +53,11 @@ const $PokemonResponse = _$PokemonResponseTearOff();
 mixin _$PokemonResponse {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  int get height => throw _privateConstructorUsedError;
+  int get weight => throw _privateConstructorUsedError;
   List<PokemonTypeResponse> get types => throw _privateConstructorUsedError;
   PokemonSpriteResponse get sprites => throw _privateConstructorUsedError;
+  List<PokemonStatsResponse> get stats => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -59,7 +68,14 @@ mixin _$PokemonResponse {
 abstract class $PokemonResponseCopyWith<$Res> {
   factory $PokemonResponseCopyWith(PokemonResponse value, $Res Function(PokemonResponse) then) =
       _$PokemonResponseCopyWithImpl<$Res>;
-  $Res call({int id, String name, List<PokemonTypeResponse> types, PokemonSpriteResponse sprites});
+  $Res call(
+      {int id,
+      String name,
+      int height,
+      int weight,
+      List<PokemonTypeResponse> types,
+      PokemonSpriteResponse sprites,
+      List<PokemonStatsResponse> stats});
 
   $PokemonSpriteResponseCopyWith<$Res> get sprites;
 }
@@ -76,8 +92,11 @@ class _$PokemonResponseCopyWithImpl<$Res> implements $PokemonResponseCopyWith<$R
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
+    Object? height = freezed,
+    Object? weight = freezed,
     Object? types = freezed,
     Object? sprites = freezed,
+    Object? stats = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -88,6 +107,14 @@ class _$PokemonResponseCopyWithImpl<$Res> implements $PokemonResponseCopyWith<$R
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      height: height == freezed
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int,
+      weight: weight == freezed
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
+              as int,
       types: types == freezed
           ? _value.types
           : types // ignore: cast_nullable_to_non_nullable
@@ -96,6 +123,10 @@ class _$PokemonResponseCopyWithImpl<$Res> implements $PokemonResponseCopyWith<$R
           ? _value.sprites
           : sprites // ignore: cast_nullable_to_non_nullable
               as PokemonSpriteResponse,
+      stats: stats == freezed
+          ? _value.stats
+          : stats // ignore: cast_nullable_to_non_nullable
+              as List<PokemonStatsResponse>,
     ));
   }
 
@@ -112,7 +143,14 @@ abstract class _$PokemonResponseCopyWith<$Res> implements $PokemonResponseCopyWi
   factory _$PokemonResponseCopyWith(_PokemonResponse value, $Res Function(_PokemonResponse) then) =
       __$PokemonResponseCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String name, List<PokemonTypeResponse> types, PokemonSpriteResponse sprites});
+  $Res call(
+      {int id,
+      String name,
+      int height,
+      int weight,
+      List<PokemonTypeResponse> types,
+      PokemonSpriteResponse sprites,
+      List<PokemonStatsResponse> stats});
 
   @override
   $PokemonSpriteResponseCopyWith<$Res> get sprites;
@@ -131,8 +169,11 @@ class __$PokemonResponseCopyWithImpl<$Res> extends _$PokemonResponseCopyWithImpl
   $Res call({
     Object? id = freezed,
     Object? name = freezed,
+    Object? height = freezed,
+    Object? weight = freezed,
     Object? types = freezed,
     Object? sprites = freezed,
+    Object? stats = freezed,
   }) {
     return _then(_PokemonResponse(
       id: id == freezed
@@ -143,6 +184,14 @@ class __$PokemonResponseCopyWithImpl<$Res> extends _$PokemonResponseCopyWithImpl
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
+      height: height == freezed
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int,
+      weight: weight == freezed
+          ? _value.weight
+          : weight // ignore: cast_nullable_to_non_nullable
+              as int,
       types: types == freezed
           ? _value.types
           : types // ignore: cast_nullable_to_non_nullable
@@ -151,6 +200,10 @@ class __$PokemonResponseCopyWithImpl<$Res> extends _$PokemonResponseCopyWithImpl
           ? _value.sprites
           : sprites // ignore: cast_nullable_to_non_nullable
               as PokemonSpriteResponse,
+      stats: stats == freezed
+          ? _value.stats
+          : stats // ignore: cast_nullable_to_non_nullable
+              as List<PokemonStatsResponse>,
     ));
   }
 }
@@ -159,7 +212,13 @@ class __$PokemonResponseCopyWithImpl<$Res> extends _$PokemonResponseCopyWithImpl
 @JsonSerializable()
 class _$_PokemonResponse extends _PokemonResponse {
   _$_PokemonResponse(
-      {required this.id, required this.name, required this.types, required this.sprites})
+      {required this.id,
+      required this.name,
+      required this.height,
+      required this.weight,
+      required this.types,
+      required this.sprites,
+      required this.stats})
       : super._();
 
   factory _$_PokemonResponse.fromJson(Map<String, dynamic> json) =>
@@ -170,13 +229,19 @@ class _$_PokemonResponse extends _PokemonResponse {
   @override
   final String name;
   @override
+  final int height;
+  @override
+  final int weight;
+  @override
   final List<PokemonTypeResponse> types;
   @override
   final PokemonSpriteResponse sprites;
+  @override
+  final List<PokemonStatsResponse> stats;
 
   @override
   String toString() {
-    return 'PokemonResponse(id: $id, name: $name, types: $types, sprites: $sprites)';
+    return 'PokemonResponse(id: $id, name: $name, height: $height, weight: $weight, types: $types, sprites: $sprites, stats: $stats)';
   }
 
   @override
@@ -186,8 +251,11 @@ class _$_PokemonResponse extends _PokemonResponse {
             other is _PokemonResponse &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.height, height) &&
+            const DeepCollectionEquality().equals(other.weight, weight) &&
             const DeepCollectionEquality().equals(other.types, types) &&
-            const DeepCollectionEquality().equals(other.sprites, sprites));
+            const DeepCollectionEquality().equals(other.sprites, sprites) &&
+            const DeepCollectionEquality().equals(other.stats, stats));
   }
 
   @override
@@ -195,8 +263,11 @@ class _$_PokemonResponse extends _PokemonResponse {
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(height),
+      const DeepCollectionEquality().hash(weight),
       const DeepCollectionEquality().hash(types),
-      const DeepCollectionEquality().hash(sprites));
+      const DeepCollectionEquality().hash(sprites),
+      const DeepCollectionEquality().hash(stats));
 
   @JsonKey(ignore: true)
   @override
@@ -213,8 +284,11 @@ abstract class _PokemonResponse extends PokemonResponse {
   factory _PokemonResponse(
       {required int id,
       required String name,
+      required int height,
+      required int weight,
       required List<PokemonTypeResponse> types,
-      required PokemonSpriteResponse sprites}) = _$_PokemonResponse;
+      required PokemonSpriteResponse sprites,
+      required List<PokemonStatsResponse> stats}) = _$_PokemonResponse;
   _PokemonResponse._() : super._();
 
   factory _PokemonResponse.fromJson(Map<String, dynamic> json) = _$_PokemonResponse.fromJson;
@@ -224,9 +298,15 @@ abstract class _PokemonResponse extends PokemonResponse {
   @override
   String get name;
   @override
+  int get height;
+  @override
+  int get weight;
+  @override
   List<PokemonTypeResponse> get types;
   @override
   PokemonSpriteResponse get sprites;
+  @override
+  List<PokemonStatsResponse> get stats;
   @override
   @JsonKey(ignore: true)
   _$PokemonResponseCopyWith<_PokemonResponse> get copyWith => throw _privateConstructorUsedError;
@@ -1044,4 +1124,330 @@ abstract class _PokemonSpriteOfficialArtworkResponse
   @JsonKey(ignore: true)
   _$PokemonSpriteOfficialArtworkResponseCopyWith<_PokemonSpriteOfficialArtworkResponse>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+PokemonStatsResponse _$PokemonStatsResponseFromJson(Map<String, dynamic> json) {
+  return _PokemonStatsResponse.fromJson(json);
+}
+
+/// @nodoc
+class _$PokemonStatsResponseTearOff {
+  const _$PokemonStatsResponseTearOff();
+
+  _PokemonStatsResponse call(
+      {@JsonKey(name: 'base_stat') required int value, required PokemonStatResponse stat}) {
+    return _PokemonStatsResponse(
+      value: value,
+      stat: stat,
+    );
+  }
+
+  PokemonStatsResponse fromJson(Map<String, Object?> json) {
+    return PokemonStatsResponse.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $PokemonStatsResponse = _$PokemonStatsResponseTearOff();
+
+/// @nodoc
+mixin _$PokemonStatsResponse {
+  @JsonKey(name: 'base_stat')
+  int get value => throw _privateConstructorUsedError;
+  PokemonStatResponse get stat => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PokemonStatsResponseCopyWith<PokemonStatsResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PokemonStatsResponseCopyWith<$Res> {
+  factory $PokemonStatsResponseCopyWith(
+          PokemonStatsResponse value, $Res Function(PokemonStatsResponse) then) =
+      _$PokemonStatsResponseCopyWithImpl<$Res>;
+  $Res call({@JsonKey(name: 'base_stat') int value, PokemonStatResponse stat});
+
+  $PokemonStatResponseCopyWith<$Res> get stat;
+}
+
+/// @nodoc
+class _$PokemonStatsResponseCopyWithImpl<$Res> implements $PokemonStatsResponseCopyWith<$Res> {
+  _$PokemonStatsResponseCopyWithImpl(this._value, this._then);
+
+  final PokemonStatsResponse _value;
+  // ignore: unused_field
+  final $Res Function(PokemonStatsResponse) _then;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+    Object? stat = freezed,
+  }) {
+    return _then(_value.copyWith(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+      stat: stat == freezed
+          ? _value.stat
+          : stat // ignore: cast_nullable_to_non_nullable
+              as PokemonStatResponse,
+    ));
+  }
+
+  @override
+  $PokemonStatResponseCopyWith<$Res> get stat {
+    return $PokemonStatResponseCopyWith<$Res>(_value.stat, (value) {
+      return _then(_value.copyWith(stat: value));
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$PokemonStatsResponseCopyWith<$Res> implements $PokemonStatsResponseCopyWith<$Res> {
+  factory _$PokemonStatsResponseCopyWith(
+          _PokemonStatsResponse value, $Res Function(_PokemonStatsResponse) then) =
+      __$PokemonStatsResponseCopyWithImpl<$Res>;
+  @override
+  $Res call({@JsonKey(name: 'base_stat') int value, PokemonStatResponse stat});
+
+  @override
+  $PokemonStatResponseCopyWith<$Res> get stat;
+}
+
+/// @nodoc
+class __$PokemonStatsResponseCopyWithImpl<$Res> extends _$PokemonStatsResponseCopyWithImpl<$Res>
+    implements _$PokemonStatsResponseCopyWith<$Res> {
+  __$PokemonStatsResponseCopyWithImpl(
+      _PokemonStatsResponse _value, $Res Function(_PokemonStatsResponse) _then)
+      : super(_value, (v) => _then(v as _PokemonStatsResponse));
+
+  @override
+  _PokemonStatsResponse get _value => super._value as _PokemonStatsResponse;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+    Object? stat = freezed,
+  }) {
+    return _then(_PokemonStatsResponse(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as int,
+      stat: stat == freezed
+          ? _value.stat
+          : stat // ignore: cast_nullable_to_non_nullable
+              as PokemonStatResponse,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_PokemonStatsResponse implements _PokemonStatsResponse {
+  _$_PokemonStatsResponse({@JsonKey(name: 'base_stat') required this.value, required this.stat});
+
+  factory _$_PokemonStatsResponse.fromJson(Map<String, dynamic> json) =>
+      _$$_PokemonStatsResponseFromJson(json);
+
+  @override
+  @JsonKey(name: 'base_stat')
+  final int value;
+  @override
+  final PokemonStatResponse stat;
+
+  @override
+  String toString() {
+    return 'PokemonStatsResponse(value: $value, stat: $stat)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _PokemonStatsResponse &&
+            const DeepCollectionEquality().equals(other.value, value) &&
+            const DeepCollectionEquality().equals(other.stat, stat));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(value),
+      const DeepCollectionEquality().hash(stat));
+
+  @JsonKey(ignore: true)
+  @override
+  _$PokemonStatsResponseCopyWith<_PokemonStatsResponse> get copyWith =>
+      __$PokemonStatsResponseCopyWithImpl<_PokemonStatsResponse>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_PokemonStatsResponseToJson(this);
+  }
+}
+
+abstract class _PokemonStatsResponse implements PokemonStatsResponse {
+  factory _PokemonStatsResponse(
+      {@JsonKey(name: 'base_stat') required int value,
+      required PokemonStatResponse stat}) = _$_PokemonStatsResponse;
+
+  factory _PokemonStatsResponse.fromJson(Map<String, dynamic> json) =
+      _$_PokemonStatsResponse.fromJson;
+
+  @override
+  @JsonKey(name: 'base_stat')
+  int get value;
+  @override
+  PokemonStatResponse get stat;
+  @override
+  @JsonKey(ignore: true)
+  _$PokemonStatsResponseCopyWith<_PokemonStatsResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+PokemonStatResponse _$PokemonStatResponseFromJson(Map<String, dynamic> json) {
+  return _PokemonStatResponse.fromJson(json);
+}
+
+/// @nodoc
+class _$PokemonStatResponseTearOff {
+  const _$PokemonStatResponseTearOff();
+
+  _PokemonStatResponse call({required String name}) {
+    return _PokemonStatResponse(
+      name: name,
+    );
+  }
+
+  PokemonStatResponse fromJson(Map<String, Object?> json) {
+    return PokemonStatResponse.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $PokemonStatResponse = _$PokemonStatResponseTearOff();
+
+/// @nodoc
+mixin _$PokemonStatResponse {
+  String get name => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PokemonStatResponseCopyWith<PokemonStatResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PokemonStatResponseCopyWith<$Res> {
+  factory $PokemonStatResponseCopyWith(
+          PokemonStatResponse value, $Res Function(PokemonStatResponse) then) =
+      _$PokemonStatResponseCopyWithImpl<$Res>;
+  $Res call({String name});
+}
+
+/// @nodoc
+class _$PokemonStatResponseCopyWithImpl<$Res> implements $PokemonStatResponseCopyWith<$Res> {
+  _$PokemonStatResponseCopyWithImpl(this._value, this._then);
+
+  final PokemonStatResponse _value;
+  // ignore: unused_field
+  final $Res Function(PokemonStatResponse) _then;
+
+  @override
+  $Res call({
+    Object? name = freezed,
+  }) {
+    return _then(_value.copyWith(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$PokemonStatResponseCopyWith<$Res> implements $PokemonStatResponseCopyWith<$Res> {
+  factory _$PokemonStatResponseCopyWith(
+          _PokemonStatResponse value, $Res Function(_PokemonStatResponse) then) =
+      __$PokemonStatResponseCopyWithImpl<$Res>;
+  @override
+  $Res call({String name});
+}
+
+/// @nodoc
+class __$PokemonStatResponseCopyWithImpl<$Res> extends _$PokemonStatResponseCopyWithImpl<$Res>
+    implements _$PokemonStatResponseCopyWith<$Res> {
+  __$PokemonStatResponseCopyWithImpl(
+      _PokemonStatResponse _value, $Res Function(_PokemonStatResponse) _then)
+      : super(_value, (v) => _then(v as _PokemonStatResponse));
+
+  @override
+  _PokemonStatResponse get _value => super._value as _PokemonStatResponse;
+
+  @override
+  $Res call({
+    Object? name = freezed,
+  }) {
+    return _then(_PokemonStatResponse(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_PokemonStatResponse implements _PokemonStatResponse {
+  _$_PokemonStatResponse({required this.name});
+
+  factory _$_PokemonStatResponse.fromJson(Map<String, dynamic> json) =>
+      _$$_PokemonStatResponseFromJson(json);
+
+  @override
+  final String name;
+
+  @override
+  String toString() {
+    return 'PokemonStatResponse(name: $name)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _PokemonStatResponse &&
+            const DeepCollectionEquality().equals(other.name, name));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(name));
+
+  @JsonKey(ignore: true)
+  @override
+  _$PokemonStatResponseCopyWith<_PokemonStatResponse> get copyWith =>
+      __$PokemonStatResponseCopyWithImpl<_PokemonStatResponse>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_PokemonStatResponseToJson(this);
+  }
+}
+
+abstract class _PokemonStatResponse implements PokemonStatResponse {
+  factory _PokemonStatResponse({required String name}) = _$_PokemonStatResponse;
+
+  factory _PokemonStatResponse.fromJson(Map<String, dynamic> json) =
+      _$_PokemonStatResponse.fromJson;
+
+  @override
+  String get name;
+  @override
+  @JsonKey(ignore: true)
+  _$PokemonStatResponseCopyWith<_PokemonStatResponse> get copyWith =>
+      throw _privateConstructorUsedError;
 }

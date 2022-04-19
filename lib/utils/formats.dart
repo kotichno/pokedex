@@ -11,4 +11,8 @@ class Formats {
   static String formatPokemonTypes(List<String> types) {
     return types.map((t) => t.capitalize()).join(', ');
   }
+
+  static String formatStatTitle(String title) {
+    return title.capitalize().replaceAll('-', ' ');
+  }
 }

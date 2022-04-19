@@ -8,6 +8,7 @@ import 'package:pokedex/di/di.dart';
 import 'package:pokedex/domain/pokemon.dart';
 import 'package:pokedex/interactor/pokemon/pokemon_interactor.dart';
 import 'package:pokedex/l10n/generated/l10n.dart';
+import 'package:pokedex/ui/navigation/app_router.dart';
 import 'package:pokedex/ui/screens/pokedex/bloc/pokedex_bloc.dart';
 import 'package:pokedex/ui/theme/poke_colors.dart';
 import 'package:pokedex/ui/theme/text_styles.dart';
@@ -339,8 +340,6 @@ class _PokemonCard extends StatefulWidget {
 }
 
 class _PokemonCardState extends State<_PokemonCard> {
-  Color? color;
-
   @override
   void initState() {
     super.initState();
@@ -350,59 +349,68 @@ class _PokemonCardState extends State<_PokemonCard> {
   Widget build(BuildContext context) {
     return ClipRRect(
       borderRadius: const BorderRadius.all(Radius.circular(4)),
-      child: DecoratedBox(
-        decoration: const BoxDecoration(
-          color: Colors.white,
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: AnimatedContainer(
-                duration: _animationDuration,
-                curve: _animationCurve,
-                decoration: BoxDecoration(
-                  color: widget.colorsCache[widget.pokemon]?.withOpacity(0.5),
-                ),
-                child: Center(
-                  child: CachedColorImage(
-                    imageUrl: widget.pokemon.img,
-                    needDetect: !widget.colorsCache.containsKey(widget.pokemon),
-                    onColorDetected: (color) {
-                      setState(() {
-                        widget.colorsCache[widget.pokemon] = color;
-                      });
-                    },
+      child: InkWell(
+        onTap: () {
+          AppRouter.of(context).openPokemonScreen(
+            widget.pokemon,
+            widget.colorsCache[widget.pokemon],
+          );
+        },
+        child: DecoratedBox(
+          decoration: const BoxDecoration(
+            color: Colors.white,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: AnimatedContainer(
+                  duration: _animationDuration,
+                  curve: _animationCurve,
+                  decoration: BoxDecoration(
+                    color: widget.colorsCache[widget.pokemon],
+                  ),
+                  child: Center(
+                    child: CachedColorImage(
+                      imageUrl: widget.pokemon.img,
+                      needDetect: !widget.colorsCache.containsKey(widget.pokemon),
+                      onColorDetected: (color) {
+                        setState(() {
+                          widget.colorsCache[widget.pokemon] = color;
+                        });
+                      },
+                      heroTag: widget.pokemon.name,
+                    ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(height: 8),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Text(
-                Formats.formatId(widget.pokemon.id),
-                style: TextStyles.regular12.copyWith(color: PokeColors.grey),
+              const SizedBox(height: 8),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Text(
+                  Formats.formatId(widget.pokemon.id),
+                  style: TextStyles.regular12.copyWith(color: PokeColors.grey),
+                ),
               ),
-            ),
-            const SizedBox(height: 2),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Text(
-                widget.pokemon.name.capitalize(),
-                style: TextStyles.semiBold14.copyWith(color: PokeColors.black87),
+              const SizedBox(height: 2),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Text(
+                  widget.pokemon.name.capitalize(),
+                  style: TextStyles.semiBold14.copyWith(color: PokeColors.black87),
+                ),
               ),
-            ),
-            const SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Text(
-                Formats.formatPokemonTypes(widget.pokemon.types),
-                style: TextStyles.regular12.copyWith(color: PokeColors.grey),
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Text(
+                  Formats.formatPokemonTypes(widget.pokemon.types),
+                  style: TextStyles.regular12.copyWith(color: PokeColors.grey),
+                ),
               ),
-            ),
-            const SizedBox(height: 10),
-          ],
+              const SizedBox(height: 10),
+            ],
+          ),
         ),
       ),
     );

@@ -9,17 +9,25 @@ part of 'pokemon_response.dart';
 _$_PokemonResponse _$$_PokemonResponseFromJson(Map<String, dynamic> json) => _$_PokemonResponse(
       id: json['id'] as int,
       name: json['name'] as String,
+      height: json['height'] as int,
+      weight: json['weight'] as int,
       types: (json['types'] as List<dynamic>)
           .map((e) => PokemonTypeResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
       sprites: PokemonSpriteResponse.fromJson(json['sprites'] as Map<String, dynamic>),
+      stats: (json['stats'] as List<dynamic>)
+          .map((e) => PokemonStatsResponse.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$_PokemonResponseToJson(_$_PokemonResponse instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+      'height': instance.height,
+      'weight': instance.weight,
       'types': instance.types,
       'sprites': instance.sprites,
+      'stats': instance.stats,
     };
 
 _$_PokemonTypeResponse _$$_PokemonTypeResponseFromJson(Map<String, dynamic> json) =>
@@ -75,4 +83,26 @@ Map<String, dynamic> _$$_PokemonSpriteOfficialArtworkResponseToJson(
         _$_PokemonSpriteOfficialArtworkResponse instance) =>
     <String, dynamic>{
       'front_default': instance.frontDefault,
+    };
+
+_$_PokemonStatsResponse _$$_PokemonStatsResponseFromJson(Map<String, dynamic> json) =>
+    _$_PokemonStatsResponse(
+      value: json['base_stat'] as int,
+      stat: PokemonStatResponse.fromJson(json['stat'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$$_PokemonStatsResponseToJson(_$_PokemonStatsResponse instance) =>
+    <String, dynamic>{
+      'base_stat': instance.value,
+      'stat': instance.stat,
+    };
+
+_$_PokemonStatResponse _$$_PokemonStatResponseFromJson(Map<String, dynamic> json) =>
+    _$_PokemonStatResponse(
+      name: json['name'] as String,
+    );
+
+Map<String, dynamic> _$$_PokemonStatResponseToJson(_$_PokemonStatResponse instance) =>
+    <String, dynamic>{
+      'name': instance.name,
     };

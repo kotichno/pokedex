@@ -11,11 +11,13 @@ class CachedColorImage extends StatefulWidget {
   final String imageUrl;
   final ValueSetter<ui.Color> onColorDetected;
   final bool needDetect;
+  final String? heroTag;
 
   const CachedColorImage({
     required this.imageUrl,
     required this.onColorDetected,
     this.needDetect = true,
+    this.heroTag,
     Key? key,
   }) : super(key: key);
 
@@ -28,7 +30,7 @@ class _CachedColorImageState extends State<CachedColorImage> {
 
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
+    final child = CachedNetworkImage(
       imageBuilder: (_, imageProvider) {
         if (status == _CalculationStatus.none && widget.needDetect) {
           status = _CalculationStatus.calculating;
@@ -54,7 +56,7 @@ class _CachedColorImageState extends State<CachedColorImage> {
                 fun3: loadImageBaseColor,
               );
               if (colorValue != null && mounted) {
-                widget.onColorDetected(ui.Color(colorValue));
+                widget.onColorDetected(ui.Color(colorValue).withOpacity(0.5));
               }
             }
           });
@@ -66,6 +68,12 @@ class _CachedColorImageState extends State<CachedColorImage> {
       },
       imageUrl: widget.imageUrl,
     );
+    
+    if (widget.heroTag != null) {
+      return Hero(tag: widget.heroTag!, child: child);
+    } else {
+      return child;
+    }
   }
 }
 

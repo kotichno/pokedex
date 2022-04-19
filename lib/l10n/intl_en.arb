@@ -2,5 +2,10 @@
     "pokedexTitle": "Pokedex",
     "allPokemon": "All Pokemons",
     "favourites": "Favourites",
-    "reload": "Reload"
+    "reload": "Reload",
+    "height": "Height",
+    "weight": "Weight",
+    "bmi": "BMI",
+    "statsTitle": "Base stats",
+    "averagePower": "Avg. Power"
 }

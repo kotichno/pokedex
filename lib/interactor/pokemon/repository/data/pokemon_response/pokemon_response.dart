@@ -10,8 +10,11 @@ class PokemonResponse with _$PokemonResponse implements Transformable<Pokemon> {
   factory PokemonResponse({
     required int id,
     required String name,
+    required int height,
+    required int weight,
     required List<PokemonTypeResponse> types,
     required PokemonSpriteResponse sprites,
+    required List<PokemonStatsResponse> stats,
   }) = _PokemonResponse;
 
   PokemonResponse._();
@@ -24,6 +27,9 @@ class PokemonResponse with _$PokemonResponse implements Transformable<Pokemon> {
         name: name,
         types: types.map((e) => e.type.name).toList(),
         img: sprites.other.officialArtwork.frontDefault,
+        height: height,
+        weight: weight,
+        stats: stats.asMap().map((key, value) => MapEntry(value.stat.name, value.value)),
       );
 }
 
@@ -77,4 +83,25 @@ class PokemonSpriteOfficialArtworkResponse with _$PokemonSpriteOfficialArtworkRe
 
   factory PokemonSpriteOfficialArtworkResponse.fromJson(Map<String, Object?> json) =>
       _$PokemonSpriteOfficialArtworkResponseFromJson(json);
+}
+
+@freezed
+class PokemonStatsResponse with _$PokemonStatsResponse {
+  factory PokemonStatsResponse({
+    @JsonKey(name: 'base_stat') required int value,
+    required PokemonStatResponse stat,
+  }) = _PokemonStatsResponse;
+
+  factory PokemonStatsResponse.fromJson(Map<String, Object?> json) =>
+      _$PokemonStatsResponseFromJson(json);
+}
+
+@freezed
+class PokemonStatResponse with _$PokemonStatResponse {
+  factory PokemonStatResponse({
+    required String name,
+  }) = _PokemonStatResponse;
+
+  factory PokemonStatResponse.fromJson(Map<String, Object?> json) =>
+      _$PokemonStatResponseFromJson(json);
 }
