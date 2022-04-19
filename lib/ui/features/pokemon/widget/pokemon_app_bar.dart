@@ -4,6 +4,7 @@ import 'package:pokedex/domain/pokemon/pokemon.dart';
 import 'package:pokedex/ui/theme/text_styles.dart';
 import 'package:pokedex/utils/formats.dart';
 import 'package:pokedex/utils/string_extension.dart';
+import 'package:pokedex/utils/utils.dart';
 
 const _maxAppBarHeight = 244.0;
 const _minAppBarHeight = 44.0;
@@ -72,7 +73,9 @@ class PokemonAppBar extends StatelessWidget {
                       height: 125,
                       child: Hero(
                         tag: pokemon.name,
-                        child: CachedNetworkImage(imageUrl: pokemon.img),
+                        child: Utils.isTestEnvironment
+                            ? Container(color: Colors.red)
+                            : CachedNetworkImage(imageUrl: pokemon.img),
                       ),
                     ),
                   ),

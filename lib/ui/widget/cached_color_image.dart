@@ -5,6 +5,7 @@ import 'dart:ui' as ui;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:palette_generator/palette_generator.dart';
+import 'package:pokedex/utils/utils.dart';
 import 'package:worker_manager/worker_manager.dart';
 
 class CachedColorImage extends StatefulWidget {
@@ -28,6 +29,8 @@ class _CachedColorImageState extends State<CachedColorImage> {
 
   @override
   Widget build(BuildContext context) {
+    if (Utils.isTestEnvironment) return Container(color: Colors.red);
+    
     return CachedNetworkImage(
       imageBuilder: (_, imageProvider) {
         if (status == _CalculationStatus.none && widget.needDetect) {
