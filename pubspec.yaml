@@ -26,6 +26,7 @@ dependencies:
   json_annotation: ^4.4.0
   palette_generator: ^0.3.3
   pretty_dio_logger: ^1.2.0-beta-1
+  shared_preferences: ^2.0.13
   tab_indicator_styler: ^2.0.0
   worker_manager: ^4.2.6
 

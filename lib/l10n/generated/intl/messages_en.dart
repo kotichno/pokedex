@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "addFavourite": MessageLookupByLibrary.simpleMessage("Mark as favourite"),
         "allPokemon": MessageLookupByLibrary.simpleMessage("All Pokemons"),
         "averagePower": MessageLookupByLibrary.simpleMessage("Avg. Power"),
         "bmi": MessageLookupByLibrary.simpleMessage("BMI"),
@@ -29,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "height": MessageLookupByLibrary.simpleMessage("Height"),
         "pokedexTitle": MessageLookupByLibrary.simpleMessage("Pokedex"),
         "reload": MessageLookupByLibrary.simpleMessage("Reload"),
+        "removeFavourite": MessageLookupByLibrary.simpleMessage("Remove from favourites"),
         "statsTitle": MessageLookupByLibrary.simpleMessage("Base stats"),
         "weight": MessageLookupByLibrary.simpleMessage("Weight")
       };

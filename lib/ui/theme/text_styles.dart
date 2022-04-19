@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/ui/theme/poke_colors.dart';
 
 class TextStyles {
+  static const bold14 = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 14,
+    color: PokeColors.base,
+  );
+
   static const bold16 = TextStyle(
     fontWeight: FontWeight.w700,
     fontSize: 16,

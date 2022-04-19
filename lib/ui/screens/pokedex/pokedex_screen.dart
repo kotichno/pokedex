@@ -9,6 +9,7 @@ import 'package:pokedex/domain/pokemon.dart';
 import 'package:pokedex/interactor/pokemon/pokemon_interactor.dart';
 import 'package:pokedex/l10n/generated/l10n.dart';
 import 'package:pokedex/ui/navigation/app_router.dart';
+import 'package:pokedex/ui/screens/favourites/bloc/favourites_bloc.dart';
 import 'package:pokedex/ui/screens/pokedex/bloc/pokedex_bloc.dart';
 import 'package:pokedex/ui/theme/poke_colors.dart';
 import 'package:pokedex/ui/theme/text_styles.dart';
@@ -20,6 +21,12 @@ import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 
 const _animationDuration = Duration(milliseconds: 200);
 const _animationCurve = Curves.easeInOut;
+const _gridDelegate = SliverGridDelegateWithFixedCrossAxisCount(
+  crossAxisCount: 3,
+  mainAxisSpacing: 12,
+  crossAxisSpacing: 10,
+  childAspectRatio: 0.59,
+);
 
 class PokedexScreen extends StatelessWidget {
   const PokedexScreen({Key? key}) : super(key: key);
@@ -93,10 +100,14 @@ class _PokedexViewState extends State<PokedexView> with TickerProviderStateMixin
                 const SizedBox(height: 2),
                 IgnorePointer(
                   ignoring: !state.isInitial,
-                  child: _TabBar(
-                    controller: _tabController,
-                    onTap: _changePage,
-                    favouritesCount: 1, // TODO(me): pass relevant data
+                  child: BlocBuilder<FavouritesBloc, FavouritesState>(
+                    builder: (context, state) {
+                      return _TabBar(
+                        controller: _tabController,
+                        onTap: _changePage,
+                        favouritesCount: state.ids.length,
+                      );
+                    },
                   ),
                 ),
                 Expanded(
@@ -171,16 +182,9 @@ class _InitialWidgetState extends State<_InitialWidget> {
               );
             },
           ),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            mainAxisSpacing: 12,
-            crossAxisSpacing: 10,
-            childAspectRatio: 0.59,
-          ),
+          gridDelegate: _gridDelegate,
         ),
-        const Center(
-          child: Text('Favourites'),
-        ),
+        _Favourites(colorsCache: _colorsCache),
       ],
     );
   }
@@ -379,7 +383,6 @@ class _PokemonCardState extends State<_PokemonCard> {
                           widget.colorsCache[widget.pokemon] = color;
                         });
                       },
-                      heroTag: widget.pokemon.name,
                     ),
                   ),
                 ),
@@ -413,6 +416,43 @@ class _PokemonCardState extends State<_PokemonCard> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _Favourites extends StatefulWidget {
+  final Map<Pokemon, Color> colorsCache;
+  const _Favourites({required this.colorsCache, Key? key}) : super(key: key);
+
+  @override
+  State<_Favourites> createState() => _FavouritesState();
+}
+
+class _FavouritesState extends State<_Favourites> {
+  @override
+  void initState() {
+    super.initState();
+
+    context.read<FavouritesBloc>().add(const FavouritesEvent.getFavouritePokemons());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<FavouritesBloc, FavouritesState>(
+      builder: (context, state) {
+        return state.maybeWhen(
+          loading: (_) => const _LoadingWidget(),
+          error: (e, _) => _ErrorWidget(exception: e),
+          favouritePokemons: (pokemons, ids) => GridView(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
+            gridDelegate: _gridDelegate,
+            children: pokemons
+                .map((pokemon) => _PokemonCard(pokemon: pokemon, colorsCache: widget.colorsCache))
+                .toList(),
+          ),
+          orElse: () => Container(color: Colors.red),
+        );
+      },
     );
   }
 }

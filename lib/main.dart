@@ -5,9 +5,9 @@ import 'package:pokedex/ui/widget/app.dart';
 import 'package:worker_manager/worker_manager.dart';
 
 Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Executor().warmUp();
   configureDependencies();
-  WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);

@@ -8,6 +8,7 @@ class PokeColors {
   static const grey = Color(0xFF6B6B6B);
   static const red = Color(0xFFCD2873);
   static const yellow = Color(0xFFEEC218);
+  static const whiteBlue = Color(0xFFD5DEFF);
   static const green = Color.fromARGB(255, 89, 195, 53);
 
   PokeColors._();

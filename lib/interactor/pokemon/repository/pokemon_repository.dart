@@ -6,7 +6,7 @@ import 'package:pokedex/domain/pokemon.dart';
 import 'package:pokedex/interactor/network/urls.dart';
 import 'package:pokedex/interactor/pokemon/repository/data/pokemon_response/pokemon_response.dart';
 
-@injectable
+@singleton
 class PokemonRepository {
   final Dio _dio;
 

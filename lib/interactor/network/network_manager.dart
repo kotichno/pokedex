@@ -5,7 +5,7 @@ import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:injectable/injectable.dart';
 import 'package:worker_manager/worker_manager.dart';
 
-@injectable
+@singleton
 class NetworkManager {
   Dio createDio() {
     final dio = Dio(

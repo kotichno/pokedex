@@ -1,9 +1,9 @@
-// ignore_for_file: avoid_print
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pokedex/domain/pokemon.dart';
 import 'package:pokedex/l10n/generated/l10n.dart';
+import 'package:pokedex/ui/screens/favourites/bloc/favourites_bloc.dart';
 import 'package:pokedex/ui/theme/poke_colors.dart';
 import 'package:pokedex/ui/theme/text_styles.dart';
 import 'package:pokedex/utils/formats.dart';
@@ -30,6 +30,7 @@ class PokemonScreen extends StatelessWidget {
         left: false,
         right: false,
         child: Scaffold(
+          floatingActionButton: _Fab(pokemon: pokemon),
           body: CustomScrollView(
             slivers: [
               _AppBar(pokemon: pokemon, color: color),
@@ -69,7 +70,6 @@ class _AppBar extends StatelessWidget {
         builder: (context, constraints) {
           final percent = _calculateHeightPercent(constraints);
 
-          print(percent);
           return Container(
             color: color,
             child: Stack(
@@ -142,7 +142,7 @@ class _AppBar extends StatelessWidget {
 
   double _multiplyHeightPercent(double percent, int num) {
     final result = percent - (1 - percent) / num;
-    print('result = $result');
+
     if (result < 0) {
       return 0;
     } else if (result > 1) {
@@ -336,6 +336,39 @@ class _StatIndicator extends StatelessWidget {
                 borderRadius: BorderRadius.circular(4),
               ),
             ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _Fab extends StatelessWidget {
+  final Pokemon pokemon;
+
+  const _Fab({
+    required this.pokemon,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<FavouritesBloc, FavouritesState>(
+      builder: (context, state) {
+        final isFavourite = state.ids.contains(pokemon.id);
+
+        return FloatingActionButton.extended(
+          backgroundColor: isFavourite ? PokeColors.whiteBlue : PokeColors.blue,
+          onPressed: () {
+            if (isFavourite) {
+              context.read<FavouritesBloc>().add(FavouritesEvent.removeFavourite(pokemon));
+            } else {
+              context.read<FavouritesBloc>().add(FavouritesEvent.addFavourite(pokemon));
+            }
+          },
+          label: Text(
+            isFavourite ? S.of(context).removeFavourite : S.of(context).addFavourite,
+            style: TextStyles.bold14.copyWith(color: isFavourite ? PokeColors.blue : Colors.white),
           ),
         );
       },

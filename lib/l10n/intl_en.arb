@@ -7,5 +7,7 @@
     "weight": "Weight",
     "bmi": "BMI",
     "statsTitle": "Base stats",
-    "averagePower": "Avg. Power"
+    "averagePower": "Avg. Power",
+    "addFavourite": "Mark as favourite",
+    "removeFavourite": "Remove from favourites"
 }
