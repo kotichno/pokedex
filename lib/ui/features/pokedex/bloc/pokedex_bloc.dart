@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:pokedex/domain/pokemon.dart';
+import 'package:pokedex/domain/pokemon/pokemon.dart';
 import 'package:pokedex/interactor/pokemon/pokemon_interactor.dart';
 import 'package:pokedex/utils/const.dart';
 
@@ -27,7 +27,7 @@ class PokedexBloc extends Bloc<PokedexEvent, PokedexState> {
 
     try {
       final pokemons = await _pokemonInteractor.loadPokemons(page: page);
-      emitter(PokedexState.initial(pokemons: pokemons));
+      emitter(PokedexState.pokemons(pokemons: pokemons));
     } on Exception catch (e) {
       if (page == Const.initialPage) {
         emitter(PokedexState.error(exception: e));

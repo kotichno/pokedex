@@ -2,15 +2,15 @@ part of 'pokedex_bloc.dart';
 
 @freezed
 class PokedexState with _$PokedexState {
-  bool get isInitial => this is _Initial;
+  bool get isPokemons => this is _Pokemons;
 
   const PokedexState._();
 
   const factory PokedexState.loading() = _Loading;
 
-  const factory PokedexState.initial({
+  const factory PokedexState.pokemons({
     required List<Pokemon> pokemons,
-  }) = _Initial;
+  }) = _Pokemons;
 
   const factory PokedexState.pageError({
     required Exception exception,

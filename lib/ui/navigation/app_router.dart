@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:pokedex/domain/pokemon.dart';
-import 'package:pokedex/ui/screens/error/error_screen.dart';
-import 'package:pokedex/ui/screens/pokedex/pokedex_screen.dart';
-import 'package:pokedex/ui/screens/pokemon/pokemon_screen.dart';
+import 'package:pokedex/domain/pokemon/pokemon.dart';
+import 'package:pokedex/ui/features/error/error_screen.dart';
+import 'package:pokedex/ui/features/pokedex/pokedex_screen.dart';
+import 'package:pokedex/ui/features/pokemon/pokemon_screen.dart';
 
 const _pokedexScreenPath = '/pokedex';
 const _pokemonScreenPath = 'pokemon';

@@ -1,5 +1,5 @@
 import 'package:injectable/injectable.dart';
-import 'package:pokedex/domain/pokemon.dart';
+import 'package:pokedex/domain/pokemon/pokemon.dart';
 import 'package:pokedex/interactor/favourites/favourites_storage.dart';
 import 'package:pokedex/interactor/pokemon/pokemon_storage.dart';
 import 'package:pokedex/interactor/pokemon/repository/pokemon_repository.dart';
@@ -17,8 +17,9 @@ class FavouritesInteractor {
   );
 
   Future<List<Pokemon>> getFavourites() {
-    final ids = _favouritesStorage.getFavourites();
-    final requests = ids.map((id) {
+    final favouriteIds = _favouritesStorage.getFavourites();
+
+    final requests = favouriteIds.map((id) {
       if (_pokemonStorage.contains(id)) {
         return Future.value(_pokemonStorage.getPokemon(id));
       } else {

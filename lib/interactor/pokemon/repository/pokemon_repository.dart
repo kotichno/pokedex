@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:pokedex/domain/pokemon.dart';
+import 'package:pokedex/domain/pokemon/pokemon.dart';
 import 'package:pokedex/interactor/network/urls.dart';
 import 'package:pokedex/interactor/pokemon/repository/data/pokemon_response/pokemon_response.dart';
 

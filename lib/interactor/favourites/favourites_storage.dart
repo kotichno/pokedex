@@ -10,13 +10,9 @@ class FavouritesStorage {
   FavouritesStorage(this._sharedPreferences);
 
   List<int> getFavourites() {
-    final ids = _sharedPreferences.getStringList(_favouritesKey);
+    final ids = _sharedPreferences.getStringList(_favouritesKey) ?? [];
 
-    if (ids == null) {
-      return [];
-    } else {
-      return ids.map(int.parse).toList();
-    }
+    return ids.map(int.parse).toList();
   }
 
   Future<void> addFavourites(int id) async {

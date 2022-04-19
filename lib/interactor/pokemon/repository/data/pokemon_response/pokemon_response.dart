@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:pokedex/domain/pokemon.dart';
+import 'package:pokedex/domain/pokemon/pokemon.dart';
 import 'package:pokedex/utils/transformable.dart';
 
 part 'pokemon_response.freezed.dart';

@@ -5,8 +5,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pokedex/di/di.dart';
 import 'package:pokedex/interactor/favourites/favourites_interactor.dart';
 import 'package:pokedex/l10n/generated/l10n.dart';
+import 'package:pokedex/ui/features/favourites/bloc/favourites_bloc.dart';
 import 'package:pokedex/ui/navigation/app_router.dart';
-import 'package:pokedex/ui/screens/favourites/bloc/favourites_bloc.dart';
 import 'package:pokedex/ui/theme/theme.dart';
 
 class App extends StatefulWidget {

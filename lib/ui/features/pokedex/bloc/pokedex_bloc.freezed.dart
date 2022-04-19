@@ -231,8 +231,8 @@ class _$PokedexStateTearOff {
     return const _Loading();
   }
 
-  _Initial initial({required List<Pokemon> pokemons}) {
-    return _Initial(
+  _Pokemons pokemons({required List<Pokemon> pokemons}) {
+    return _Pokemons(
       pokemons: pokemons,
     );
   }
@@ -258,7 +258,7 @@ mixin _$PokedexState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Pokemon> pokemons) initial,
+    required TResult Function(List<Pokemon> pokemons) pokemons,
     required TResult Function(Exception exception) pageError,
     required TResult Function(Exception exception) error,
   }) =>
@@ -266,7 +266,7 @@ mixin _$PokedexState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Pokemon> pokemons)? initial,
+    TResult Function(List<Pokemon> pokemons)? pokemons,
     TResult Function(Exception exception)? pageError,
     TResult Function(Exception exception)? error,
   }) =>
@@ -274,7 +274,7 @@ mixin _$PokedexState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Pokemon> pokemons)? initial,
+    TResult Function(List<Pokemon> pokemons)? pokemons,
     TResult Function(Exception exception)? pageError,
     TResult Function(Exception exception)? error,
     required TResult orElse(),
@@ -283,7 +283,7 @@ mixin _$PokedexState {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_Pokemons value) pokemons,
     required TResult Function(_PageError value) pageError,
     required TResult Function(_Error value) error,
   }) =>
@@ -291,7 +291,7 @@ mixin _$PokedexState {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Pokemons value)? pokemons,
     TResult Function(_PageError value)? pageError,
     TResult Function(_Error value)? error,
   }) =>
@@ -299,7 +299,7 @@ mixin _$PokedexState {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Pokemons value)? pokemons,
     TResult Function(_PageError value)? pageError,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -360,7 +360,7 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Pokemon> pokemons) initial,
+    required TResult Function(List<Pokemon> pokemons) pokemons,
     required TResult Function(Exception exception) pageError,
     required TResult Function(Exception exception) error,
   }) {
@@ -371,7 +371,7 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Pokemon> pokemons)? initial,
+    TResult Function(List<Pokemon> pokemons)? pokemons,
     TResult Function(Exception exception)? pageError,
     TResult Function(Exception exception)? error,
   }) {
@@ -382,7 +382,7 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Pokemon> pokemons)? initial,
+    TResult Function(List<Pokemon> pokemons)? pokemons,
     TResult Function(Exception exception)? pageError,
     TResult Function(Exception exception)? error,
     required TResult orElse(),
@@ -397,7 +397,7 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_Pokemons value) pokemons,
     required TResult Function(_PageError value) pageError,
     required TResult Function(_Error value) error,
   }) {
@@ -408,7 +408,7 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Pokemons value)? pokemons,
     TResult Function(_PageError value)? pageError,
     TResult Function(_Error value)? error,
   }) {
@@ -419,7 +419,7 @@ class _$_Loading extends _Loading {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Pokemons value)? pokemons,
     TResult Function(_PageError value)? pageError,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -437,26 +437,26 @@ abstract class _Loading extends PokedexState {
 }
 
 /// @nodoc
-abstract class _$InitialCopyWith<$Res> {
-  factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
-      __$InitialCopyWithImpl<$Res>;
+abstract class _$PokemonsCopyWith<$Res> {
+  factory _$PokemonsCopyWith(_Pokemons value, $Res Function(_Pokemons) then) =
+      __$PokemonsCopyWithImpl<$Res>;
   $Res call({List<Pokemon> pokemons});
 }
 
 /// @nodoc
-class __$InitialCopyWithImpl<$Res> extends _$PokedexStateCopyWithImpl<$Res>
-    implements _$InitialCopyWith<$Res> {
-  __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
-      : super(_value, (v) => _then(v as _Initial));
+class __$PokemonsCopyWithImpl<$Res> extends _$PokedexStateCopyWithImpl<$Res>
+    implements _$PokemonsCopyWith<$Res> {
+  __$PokemonsCopyWithImpl(_Pokemons _value, $Res Function(_Pokemons) _then)
+      : super(_value, (v) => _then(v as _Pokemons));
 
   @override
-  _Initial get _value => super._value as _Initial;
+  _Pokemons get _value => super._value as _Pokemons;
 
   @override
   $Res call({
     Object? pokemons = freezed,
   }) {
-    return _then(_Initial(
+    return _then(_Pokemons(
       pokemons: pokemons == freezed
           ? _value.pokemons
           : pokemons // ignore: cast_nullable_to_non_nullable
@@ -467,22 +467,22 @@ class __$InitialCopyWithImpl<$Res> extends _$PokedexStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initial extends _Initial {
-  const _$_Initial({required this.pokemons}) : super._();
+class _$_Pokemons extends _Pokemons {
+  const _$_Pokemons({required this.pokemons}) : super._();
 
   @override
   final List<Pokemon> pokemons;
 
   @override
   String toString() {
-    return 'PokedexState.initial(pokemons: $pokemons)';
+    return 'PokedexState.pokemons(pokemons: $pokemons)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Initial &&
+            other is _Pokemons &&
             const DeepCollectionEquality().equals(other.pokemons, pokemons));
   }
 
@@ -491,41 +491,42 @@ class _$_Initial extends _Initial {
 
   @JsonKey(ignore: true)
   @override
-  _$InitialCopyWith<_Initial> get copyWith => __$InitialCopyWithImpl<_Initial>(this, _$identity);
+  _$PokemonsCopyWith<_Pokemons> get copyWith =>
+      __$PokemonsCopyWithImpl<_Pokemons>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Pokemon> pokemons) initial,
+    required TResult Function(List<Pokemon> pokemons) pokemons,
     required TResult Function(Exception exception) pageError,
     required TResult Function(Exception exception) error,
   }) {
-    return initial(pokemons);
+    return pokemons(this.pokemons);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Pokemon> pokemons)? initial,
+    TResult Function(List<Pokemon> pokemons)? pokemons,
     TResult Function(Exception exception)? pageError,
     TResult Function(Exception exception)? error,
   }) {
-    return initial?.call(pokemons);
+    return pokemons?.call(this.pokemons);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Pokemon> pokemons)? initial,
+    TResult Function(List<Pokemon> pokemons)? pokemons,
     TResult Function(Exception exception)? pageError,
     TResult Function(Exception exception)? error,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(pokemons);
+    if (pokemons != null) {
+      return pokemons(this.pokemons);
     }
     return orElse();
   }
@@ -534,47 +535,47 @@ class _$_Initial extends _Initial {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_Pokemons value) pokemons,
     required TResult Function(_PageError value) pageError,
     required TResult Function(_Error value) error,
   }) {
-    return initial(this);
+    return pokemons(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Pokemons value)? pokemons,
     TResult Function(_PageError value)? pageError,
     TResult Function(_Error value)? error,
   }) {
-    return initial?.call(this);
+    return pokemons?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Pokemons value)? pokemons,
     TResult Function(_PageError value)? pageError,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
-    if (initial != null) {
-      return initial(this);
+    if (pokemons != null) {
+      return pokemons(this);
     }
     return orElse();
   }
 }
 
-abstract class _Initial extends PokedexState {
-  const factory _Initial({required List<Pokemon> pokemons}) = _$_Initial;
-  const _Initial._() : super._();
+abstract class _Pokemons extends PokedexState {
+  const factory _Pokemons({required List<Pokemon> pokemons}) = _$_Pokemons;
+  const _Pokemons._() : super._();
 
   List<Pokemon> get pokemons;
   @JsonKey(ignore: true)
-  _$InitialCopyWith<_Initial> get copyWith => throw _privateConstructorUsedError;
+  _$PokemonsCopyWith<_Pokemons> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -639,7 +640,7 @@ class _$_PageError extends _PageError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Pokemon> pokemons) initial,
+    required TResult Function(List<Pokemon> pokemons) pokemons,
     required TResult Function(Exception exception) pageError,
     required TResult Function(Exception exception) error,
   }) {
@@ -650,7 +651,7 @@ class _$_PageError extends _PageError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Pokemon> pokemons)? initial,
+    TResult Function(List<Pokemon> pokemons)? pokemons,
     TResult Function(Exception exception)? pageError,
     TResult Function(Exception exception)? error,
   }) {
@@ -661,7 +662,7 @@ class _$_PageError extends _PageError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Pokemon> pokemons)? initial,
+    TResult Function(List<Pokemon> pokemons)? pokemons,
     TResult Function(Exception exception)? pageError,
     TResult Function(Exception exception)? error,
     required TResult orElse(),
@@ -676,7 +677,7 @@ class _$_PageError extends _PageError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_Pokemons value) pokemons,
     required TResult Function(_PageError value) pageError,
     required TResult Function(_Error value) error,
   }) {
@@ -687,7 +688,7 @@ class _$_PageError extends _PageError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Pokemons value)? pokemons,
     TResult Function(_PageError value)? pageError,
     TResult Function(_Error value)? error,
   }) {
@@ -698,7 +699,7 @@ class _$_PageError extends _PageError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Pokemons value)? pokemons,
     TResult Function(_PageError value)? pageError,
     TResult Function(_Error value)? error,
     required TResult orElse(),
@@ -779,7 +780,7 @@ class _$_Error extends _Error {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<Pokemon> pokemons) initial,
+    required TResult Function(List<Pokemon> pokemons) pokemons,
     required TResult Function(Exception exception) pageError,
     required TResult Function(Exception exception) error,
   }) {
@@ -790,7 +791,7 @@ class _$_Error extends _Error {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Pokemon> pokemons)? initial,
+    TResult Function(List<Pokemon> pokemons)? pokemons,
     TResult Function(Exception exception)? pageError,
     TResult Function(Exception exception)? error,
   }) {
@@ -801,7 +802,7 @@ class _$_Error extends _Error {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<Pokemon> pokemons)? initial,
+    TResult Function(List<Pokemon> pokemons)? pokemons,
     TResult Function(Exception exception)? pageError,
     TResult Function(Exception exception)? error,
     required TResult orElse(),
@@ -816,7 +817,7 @@ class _$_Error extends _Error {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
-    required TResult Function(_Initial value) initial,
+    required TResult Function(_Pokemons value) pokemons,
     required TResult Function(_PageError value) pageError,
     required TResult Function(_Error value) error,
   }) {
@@ -827,7 +828,7 @@ class _$_Error extends _Error {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Pokemons value)? pokemons,
     TResult Function(_PageError value)? pageError,
     TResult Function(_Error value)? error,
   }) {
@@ -838,7 +839,7 @@ class _$_Error extends _Error {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
-    TResult Function(_Initial value)? initial,
+    TResult Function(_Pokemons value)? pokemons,
     TResult Function(_PageError value)? pageError,
     TResult Function(_Error value)? error,
     required TResult orElse(),

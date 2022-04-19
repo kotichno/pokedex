@@ -11,10 +11,6 @@ class FavouritesState with _$FavouritesState {
     required List<int> ids,
   }) = _FavouritePokemons;
 
-  // const factory FavouritesState.pageError({
-  //   required Exception exception,
-  // }) = _PageError;
-
   const factory FavouritesState.error({
     required Exception exception,
     required List<int> ids,

@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:pokedex/domain/pokemon.dart';
+import 'package:pokedex/domain/pokemon/pokemon.dart';
 import 'package:pokedex/interactor/favourites/favourites_interactor.dart';
 
 part 'favourites_event.dart';
@@ -36,6 +36,7 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
 
   Future<void> _getFavouritesPokemons(Emitter<FavouritesState> emitter) async {
     emitter(FavouritesState.loading(ids: _interactor.getFavouritesIds()));
+
     try {
       final pokemons = await _interactor.getFavourites();
       emitter(FavouritesState.favouritePokemons(
@@ -52,9 +53,9 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
 
   Future<void> _emitState(Emitter<FavouritesState> emitter) async {
     final FavouritesState newState;
+
     if (state is _FavouritePokemons) {
-      final favState = state as _FavouritePokemons;
-      newState = favState.copyWith(
+      newState = (state as _FavouritePokemons).copyWith(
         pokemons: await _interactor.getFavourites(),
         ids: _interactor.getFavouritesIds(),
       );

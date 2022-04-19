@@ -1,4 +1,3 @@
-// main.dart
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'pokemon.freezed.dart';
